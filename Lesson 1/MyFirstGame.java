@@ -13,7 +13,7 @@ public class MyFirstGame {
 
                 System.out.println("Введенное вами число больше");
                 playerNumber = (playerNumber - min) / 2;
-            } else if (playerNumber < number) {
+            } else if (playerNumber < randomNum) {
                 min = playerNumber;
 
                 System.out.println("Введенное вами число меньше");
