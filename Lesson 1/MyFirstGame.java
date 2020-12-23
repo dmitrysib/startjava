@@ -3,7 +3,7 @@ public class MyFirstGame {
         int randomNum = (int) (Math.random() * 100);
 
         int playerNumber = 50;
-        System.out.println("Ваше число " + mainNumber);
+        System.out.println("Ваше число " + playerNumber);
 
         int min = 0, max = 100;
 
