@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class ConditionalStatement {
     public static void main(String[] args) {
-
         System.out.println("Please enter age:");
         Scanner sc = new Scanner(System.in);
         int age = sc.nextInt();
@@ -27,8 +26,7 @@ public class ConditionalStatement {
 
         if (height < 1.80f) {
             System.out.println("It's a dwarf!");
-        }
-        else {
+        } else {
             System.out.println("It's a normal");
         }
 
@@ -37,29 +35,10 @@ public class ConditionalStatement {
 
         if (firstLetter == 'M') {
             System.out.println("first letter is M");
-        }
-        else if (firstLetter == 'I') {
+        } else if (firstLetter == 'I') {
             System.out.println("first letter is I");
-        }
-        else {
+        } else {
             System.out.println("first letter is " + firstLetter);
         }
-
-/*
-        System.out.println("Enter the name:");
-        String name = sc.next();
-
-        switch (name.charAt(0)) {
-            case 'M':
-                System.out.println("first letter is M");
-                break;
-            case 'I':
-                System.out.println("first letter is I");
-                break;
-            default:
-                System.out.println("first letter is " + name.charAt(0));
-                break;
-        }
-*/
     }
 }

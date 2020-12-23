@@ -1,29 +1,27 @@
 public class MyFirstGame {
     public static void main(String[] args) {
-        int number = (int)(Math.random() * 100);
+        int randomNum = (int) (Math.random() * 100);
 
-        int mainNumber = 50;
+        int playerNumber = 50;
         System.out.println("Ваше число " + mainNumber);
 
         int min = 0, max = 100;
 
         do {
             if (mainNumber > number) {
-                max = mainNumber;
+                max = playerNumber;
 
                 System.out.println("Введенное вами число больше");
-                mainNumber = (mainNumber - min) / 2;
-            }
-            else if (mainNumber < number) {
-                min = mainNumber;
+                playerNumber = (playerNumber - min) / 2;
+            } else if (playerNumber < number) {
+                min = playerNumber;
 
                 System.out.println("Введенное вами число меньше");
-                mainNumber += (max - mainNumber) /  2;
+                playerNumber += (max - playerNumber) /  2;
             }
 
-            System.out.println("Ваше число " + mainNumber);
-        } while ( mainNumber != number);
-
-        System.out.println("Вы угадали (" + number + ") !");
+            System.out.println("Ваше число " + playerNumber);
+        } while ( playerNumber != randomNum);
+        System.out.println("Вы угадали (" + randomNum + ") !");
     }
 }
