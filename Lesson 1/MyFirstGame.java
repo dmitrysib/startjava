@@ -21,7 +21,7 @@ public class MyFirstGame {
             }
 
             System.out.println("Ваше число " + playerNumber);
-        } while ( playerNumber != randomNum);
+        } while( playerNumber != randomNum);
         System.out.println("Вы угадали (" + randomNum + ") !");
     }
 }

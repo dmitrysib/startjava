@@ -5,7 +5,7 @@ public class Cycle {
         }
 
         int i = 6;
-        while (i >= -6) {
+        while(i >= -6) {
             System.out.println("'while' cycle, number is " + i);
             i -= 2;
         }
