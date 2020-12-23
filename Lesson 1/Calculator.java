@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Calculator {
     public static void main(String[] args) {
-
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter first number:");
@@ -17,20 +16,15 @@ public class Calculator {
         float result = -1;
         if (operation == '+') {
             result = firstNumber + secondNumber;
-        }
-        else if (operation == '-') {
+        } else if (operation == '-') {
             result = firstNumber - secondNumber;
-        }
-        else if (operation == '*') {
+        } else if (operation == '*') {
             result = firstNumber * secondNumber;
-        }
-        else if (operation == '/') {
+        } else if (operation == '/') {
             result = firstNumber / secondNumber;
-        }
-        else if (operation == '%') {
+        } else if (operation == '%') {
             result = firstNumber % secondNumber;
-        }
-        else if (operation == '^') {
+        } else if (operation == '^') {
             result = firstNumber;
             for (int i = 1; i < secondNumber; i++) {
                 result *= firstNumber;
