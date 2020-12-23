@@ -8,7 +8,7 @@ public class MyFirstGame {
         int min = 0, max = 100;
 
         do {
-            if (mainNumber > randomNum) {
+            if (playerNumber > randomNum) {
                 max = playerNumber;
 
                 System.out.println("Введенное вами число больше");

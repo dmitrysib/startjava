@@ -3,4 +3,5 @@ class Unicode {
         for (char i = 9398; i <= 10178; i++ ) {
             System.out.println("Unicode code is: " + i);
         }
+    }
 }
