@@ -28,10 +28,12 @@ public class GuessNumberTest {
                     System.out.println("\n" + player.getName() + "! You win!!!");
                     notFoundIt = false;
                     break;
-                } else if (prompt(sc) == false) {
-                    notFoundIt = false;
-                    break;
                 }
+            }
+
+            if (notFoundIt && prompt(sc) == false) {
+                notFoundIt = false;
+                break;
             }
         }
     }
