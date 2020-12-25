@@ -17,8 +17,4 @@ public class Player {
     public int getNumber() {
         return number;
     }
-
-    public String toString() {
-        return name;
-    }
 }

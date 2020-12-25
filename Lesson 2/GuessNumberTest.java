@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class GuessNumberTest {
 
@@ -12,29 +11,20 @@ public class GuessNumberTest {
         System.out.println("Enter name of second player: ");
         Player secondPlayer = new Player(sc.nextLine());
 
-        GuessNumber gn = new GuessNumber(firstPlayer, secondPlayer, sc);
-        Random random = new Random();
+        GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
 
         do {
-            gn.startGame((int) (random.nextFloat() * 100));
+            game.start();
 
-        } while(isNext(sc));
-
-        sc.close();
-    }
-
-    public static boolean isNext(Scanner sc) {
-        sc.nextLine();
-
-        while(true) {
-            System.out.println("Continue game? [yes/no]: ");
-            String answer = sc.nextLine();
-
-            if(answer.equals("yes")) {
-                return true;
-            } else if(answer.equals("no")) {
-                return false;
+            String answer = "";
+            while(!answer.equals("yes") && !answer.equals("no")) {
+                System.out.println("Continue game? [yes/no]:");
+                answer = sc.nextLine();
             }
-        }
+            if (answer.equals("no")) {
+                sc.close();
+                return;
+            }
+        } while(true);
     }
 }

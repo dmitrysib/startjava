@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class GuessNumber {
 
@@ -6,44 +7,38 @@ public class GuessNumber {
     private Player secondPlayer;
     private int randomNum;
     private Scanner sc;
+    private Random random;
 
-    GuessNumber(Player firstPlayer, Player secondPlayer, Scanner sc) {
+    GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
-        this.sc = sc;
+
+        sc = new Scanner(System.in);
+        random = new Random();
     }
 
-    void startGame(int randomNum) {
-        this.randomNum = randomNum;
+    void start() {
+        randomNum = (int) (random.nextFloat() * 100);
+        Player current = secondPlayer;
+        do {
+            current = current.equals(firstPlayer)? secondPlayer : firstPlayer;
+            inputNumber(current);
 
-        while(true) {
-            pickNumber(firstPlayer);
-            if(testNumber(firstPlayer.getNumber())) {
-                System.out.println("Player " + firstPlayer.getName() + ", You win!");
-                return;
+            // Чтобы каждый раз не дергать метод
+            int playerNumber = current.getNumber();
+            if(playerNumber > randomNum) {
+                System.out.println("Player " + current.getName() + ", your number is great");
+            } else if(playerNumber < randomNum) {
+                System.out.println("Player " + current.getName() + ", your number is lowest");
+            } else {
+                break;
             }
-
-            pickNumber(secondPlayer);
-            if(testNumber(secondPlayer.getNumber())) {
-                System.out.println("Player " + secondPlayer.getName() + ", You win!");
-                return;
-            }
-        }
+        } while(true);
+        System.out.println("Player " + current.getName() + ", You win!");
     }
 
-    void pickNumber(Player player) {
-        System.out.println("Player " + player.getName() + ", please choise your number: ");
+    void inputNumber(Player player) {
+        System.out.println("\nPlayer " + player.getName() + ", please choise your number: ");
         player.setNumber(sc.nextInt());
-    }
-
-    public boolean testNumber(int playerNumber) {
-        if(playerNumber == this.randomNum) {
-            return true;
-        } else if(playerNumber > this.randomNum) {
-            System.out.println("Your number is great");
-        } else {
-            System.out.println("Your number is lowest");
-        }
-        return false;
     }
 }

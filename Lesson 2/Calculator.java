@@ -14,9 +14,9 @@ public class Calculator {
                 return (int) Math.pow(firstNumber, secondNumber);
             case '%':
                 return firstNumber % secondNumber;
-            default:
-                System.out.println("Неправильный знак математической операции");
-                return 0;
         }
+
+        System.out.println("Неправильный знак математической операции");
+        return 0;
     }
 }

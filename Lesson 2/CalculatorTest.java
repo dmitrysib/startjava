@@ -18,21 +18,14 @@ public class CalculatorTest {
 
             System.out.println("Результат: " + calc.calculate(firstNumber, operation, secondNumber));
 
-        } while(isNext(sc));
-    }
-
-    public static boolean isNext(Scanner sc) {
-        sc.nextLine();
-
-        while(true) {
-            System.out.println("Хотите продолжить вычисления? [да/нет]: ");
             String answer = sc.nextLine();
-
-            if(answer.equals("да")) {
-                return true;
-            } else if(answer.equals("нет")) {
-                return false;
+            while(!answer.equals("да") && !answer.equals("нет")) {
+                System.out.println("Хотите продолжить вычисления? [да/нет]: ");
+                answer = sc.nextLine();
             }
-        }
+            if (answer.equals("нет")) {
+                return;
+            }
+        } while(true);
     }
 }
