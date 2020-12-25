@@ -7,14 +7,14 @@ public class GuessNumber {
     private int randomNum;
     private Scanner sc;
 
-    GuessNumber(Player firstPlayer, Player secondPlayer) {
+    GuessNumber(Player firstPlayer, Player secondPlayer, Scanner sc) {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
+        this.sc = sc;
     }
 
-    void startGame(int randomNum, Scanner sc) {
+    void startGame(int randomNum) {
         this.randomNum = randomNum;
-        this.sc = sc;
 
         while(true) {
             pickNumber(firstPlayer);

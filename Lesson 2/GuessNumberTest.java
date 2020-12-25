@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.Scanner;
+import java.util.Random;
 
 public class GuessNumberTest {
 
@@ -11,11 +12,11 @@ public class GuessNumberTest {
         System.out.println("Enter name of second player: ");
         Player secondPlayer = new Player(sc.nextLine());
 
-        GuessNumber gn = new GuessNumber(firstPlayer, secondPlayer);
+        GuessNumber gn = new GuessNumber(firstPlayer, secondPlayer, sc);
         Random random = new Random();
 
         do {
-            gn.startGame((int) (random.nextFloat() * 100), sc);
+            gn.startGame((int) (random.nextFloat() * 100));
 
         } while(isNext(sc));
 
