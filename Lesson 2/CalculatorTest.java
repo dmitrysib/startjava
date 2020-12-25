@@ -6,6 +6,7 @@ public class CalculatorTest {
         Calculator calc = new Calculator();
         Scanner sc = new Scanner(System.in);
 
+        String answer;
         do {
             System.out.println("Введите первое число: ");
             int firstNumber = sc.nextInt();
@@ -18,14 +19,13 @@ public class CalculatorTest {
 
             System.out.println("Результат: " + calc.calculate(firstNumber, operation, secondNumber));
 
-            String answer = sc.nextLine();
+            answer = sc.nextLine();
             while(!answer.equals("да") && !answer.equals("нет")) {
                 System.out.println("Хотите продолжить вычисления? [да/нет]: ");
                 answer = sc.nextLine();
             }
-            if (answer.equals("нет")) {
-                return;
-            }
-        } while(true);
+        } while(answer.equals("да"));
+
+        sc.close();
     }
 }
