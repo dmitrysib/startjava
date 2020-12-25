@@ -3,42 +3,26 @@ import java.util.*;
 public class GuessNumberTest {
 
     public static void main(String[] args) {
-        List<Player> players = new ArrayList<Player>();
-
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("First gamer: ");
-        String name = sc.nextLine();
-        players.add(new Player(name));
+        System.out.println("Enter name of first player: ");
+        Player firstPlayer = new Player(sc.nextLine());
 
-        System.out.println("Second gamer: ");
-        name = sc.nextLine();
-        players.add(new Player(name));
+        System.out.println("Enter name of second player: ");
+        Player secondPlayer = new Player(sc.nextLine());
 
+        GuessNumber gn = new GuessNumber(firstPlayer, secondPlayer);
         Random random = new Random();
-        GuessNumber gn = new GuessNumber((int) (random.nextFloat() * 100));
 
-        boolean notFoundIt = true;
-        while(notFoundIt) {
-            for(Player player: players) {
-                System.out.println("\n" + player.getName() + ", enter number: ");
-                int playerNumber = sc.nextInt();
+        do {
+            gn.startGame((int) (random.nextFloat() * 100), sc);
 
-                if(gn.testNumber(playerNumber) == true) {
-                    System.out.println("\n" + player.getName() + "! You win!!!");
-                    notFoundIt = false;
-                    break;
-                }
-            }
+        } while(isNext(sc));
 
-            if (notFoundIt && prompt(sc) == false) {
-                notFoundIt = false;
-                break;
-            }
-        }
+        sc.close();
     }
 
-    public static boolean prompt(Scanner sc) {
+    public static boolean isNext(Scanner sc) {
         sc.nextLine();
 
         while(true) {

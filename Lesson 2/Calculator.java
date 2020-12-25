@@ -1,6 +1,6 @@
 public class Calculator {
-    //+, -, *, /, ^, %
-    public int mathOperation(char operation, int firstNumber, int secondNumber) {
+
+    public int calculate(int firstNumber, char operation, int secondNumber) {
         switch(operation) {
             case '+':
                 return firstNumber + secondNumber;
@@ -16,7 +16,7 @@ public class Calculator {
                 return firstNumber % secondNumber;
             default:
                 System.out.println("Неправильный знак математической операции");
-                return -1;
+                return 0;
         }
     }
 }

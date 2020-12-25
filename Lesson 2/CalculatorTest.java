@@ -3,10 +3,10 @@ import java.util.Scanner;
 public class CalculatorTest {
 
     public static void main(String[] args) {
-        Calculator cl = new Calculator();
+        Calculator calc = new Calculator();
         Scanner sc = new Scanner(System.in);
 
-        while(true) {
+        do {
             System.out.println("Введите первое число: ");
             int firstNumber = sc.nextInt();
 
@@ -16,15 +16,12 @@ public class CalculatorTest {
             System.out.println("Введите второе число: ");
             int secondNumber = sc.nextInt();
 
-            System.out.println("Результат: " + cl.mathOperation(operation, firstNumber, secondNumber));
+            System.out.println("Результат: " + calc.calculate(firstNumber, operation, secondNumber));
 
-            if(prompt(sc) == false) {
-                break;
-            }
-        }
+        } while(isNext(sc));
     }
 
-    public static boolean prompt(Scanner sc) {
+    public static boolean isNext(Scanner sc) {
         sc.nextLine();
 
         while(true) {

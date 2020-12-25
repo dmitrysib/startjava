@@ -21,12 +21,12 @@ public class JaegerTest {
 
         gipsyDanger.moveToLocation("Kodiak Island");
 
-        chernoAlpha.jaegerInfo();
-        gipsyDanger.jaegerInfo();
+        System.out.println(chernoAlpha);
+        System.out.println(gipsyDanger);
 
         chernoAlpha.moveToLocation("Hong Kong, China");
 
-        chernoAlpha.jaegerInfo();
+        System.out.println(chernoAlpha);
 
         gipsyDanger.chargeEnergyCore();
     }

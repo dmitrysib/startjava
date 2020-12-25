@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Player {
     private String name;
     private int number;
@@ -7,6 +9,18 @@ public class Player {
     }
 
     public String getName() {
+        return name;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String toString() {
         return this.name;
     }
 }
