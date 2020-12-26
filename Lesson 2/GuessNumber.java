@@ -5,40 +5,29 @@ public class GuessNumber {
 
     private Player firstPlayer;
     private Player secondPlayer;
-    private int randomNum;
-    private Scanner sc;
-    private Random random;
 
     GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;
         this.secondPlayer = secondPlayer;
-
-        sc = new Scanner(System.in);
-        random = new Random();
     }
 
     void start() {
-        randomNum = (int) (random.nextFloat() * 100);
+        Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+        int randomNum = (int) (random.nextFloat() * 10);
         Player current = secondPlayer;
+        int currentNumber = -1;
         do {
             current = current.equals(firstPlayer)? secondPlayer : firstPlayer;
-            inputNumber(current);
+            System.out.println("\nPlayer " + current.getName() + ", please choise your number: ");
+            currentNumber  = sc.nextInt();
 
-            // Чтобы каждый раз не дергать метод
-            int playerNumber = current.getNumber();
-            if(playerNumber > randomNum) {
+            if(currentNumber > randomNum) {
                 System.out.println("Player " + current.getName() + ", your number is great");
-            } else if(playerNumber < randomNum) {
+            } else if(currentNumber < randomNum) {
                 System.out.println("Player " + current.getName() + ", your number is lowest");
-            } else {
-                break;
             }
-        } while(true);
+        } while(currentNumber != randomNum);
         System.out.println("Player " + current.getName() + ", You win!");
-    }
-
-    void inputNumber(Player player) {
-        System.out.println("\nPlayer " + player.getName() + ", please choise your number: ");
-        player.setNumber(sc.nextInt());
     }
 }

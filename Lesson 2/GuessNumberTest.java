@@ -13,8 +13,9 @@ public class GuessNumberTest {
 
         GuessNumber game = new GuessNumber(firstPlayer, secondPlayer);
 
-        String answer = "";
+        String answer;
         do {
+            answer = "";
             game.start();
 
             while(!answer.equals("yes") && !answer.equals("no")) {
