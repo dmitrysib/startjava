@@ -14,7 +14,7 @@ public class GuessNumber {
     void start() {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
-        int randomNum = (int) (random.nextFloat() * 10);
+        int randomNum = (int) (random.nextFloat() * 100);
         Player current = secondPlayer;
         int currentNumber = -1;
         do {
