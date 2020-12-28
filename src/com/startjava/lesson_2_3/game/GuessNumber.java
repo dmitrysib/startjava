@@ -1,4 +1,4 @@
-package com.startjava.lesson_23.game;
+package com.startjava.lesson_2_3.game;
 
 import java.util.Scanner;
 import java.util.Random;
@@ -18,11 +18,10 @@ public class GuessNumber {
         Random random = new Random();
         int randomNum = random.nextInt(100) + 1;
         Player current = secondPlayer;
-        int currentNumber = -1;
         do {
             current = current.equals(firstPlayer) ? secondPlayer : firstPlayer;
             System.out.print("\nPlayer " + current.getName() + ", please choise your number: ");
-            currentNumber  = sc.nextInt();
+            int currentNumber  = sc.nextInt();
 
             if(currentNumber == randomNum) {
                 System.out.println("Player " + current.getName() + ", your number is win");
