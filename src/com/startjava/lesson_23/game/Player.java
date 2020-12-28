@@ -1,3 +1,5 @@
+package com.startjava.lesson_23.game;
+
 public class Player {
     private String name;
 
