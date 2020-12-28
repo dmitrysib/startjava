@@ -27,8 +27,8 @@ public class GuessNumber {
                 break;
             }
 
-            System.out.println("Player " + current.getName() + ", your number is "
-                + (currentNumber > randomNum ? "great" : "less"));
+            String message = currentNumber > randomNum ? "great" : "less";
+            System.out.println("Player " + current.getName() + ", your number is " + message);
         } while(true);
     }
 }
