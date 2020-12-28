@@ -22,10 +22,13 @@ public class GuessNumber {
             System.out.println("\nPlayer " + current.getName() + ", please choise your number: ");
             currentNumber  = sc.nextInt();
 
-            String result = currentNumber == randomNum ? "win"
-                : currentNumber > randomNum ? "great" : "less";
+            if(currentNumber == randomNum) {
+                System.out.println("Player " + current.getName() + ", your number is win");
+                break;
+            }
 
-            System.out.println("Player " + current.getName() + ", your number is " + result);
-        } while(currentNumber != randomNum);
+            System.out.println("Player " + current.getName() + ", your number is "
+                + (currentNumber > randomNum ? "great" : "less"));
+        } while(true);
     }
 }
