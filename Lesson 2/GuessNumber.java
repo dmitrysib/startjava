@@ -18,16 +18,14 @@ public class GuessNumber {
         Player current = secondPlayer;
         int currentNumber = -1;
         do {
-            current = current.equals(firstPlayer)? secondPlayer : firstPlayer;
+            current = current.equals(firstPlayer) ? secondPlayer : firstPlayer;
             System.out.println("\nPlayer " + current.getName() + ", please choise your number: ");
             currentNumber  = sc.nextInt();
 
-            if(currentNumber > randomNum) {
-                System.out.println("Player " + current.getName() + ", your number is great");
-            } else if(currentNumber < randomNum) {
-                System.out.println("Player " + current.getName() + ", your number is lowest");
-            }
+            String result = currentNumber == randomNum ? ", You win!"
+                : (currentNumber > randomNum ? ", your number is great" : ", your number is lowest");
+
+            System.out.println("Player " + current.getName() + result);
         } while(currentNumber != randomNum);
-        System.out.println("Player " + current.getName() + ", You win!");
     }
 }
