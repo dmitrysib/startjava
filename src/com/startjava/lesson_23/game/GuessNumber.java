@@ -21,7 +21,7 @@ public class GuessNumber {
         int currentNumber = -1;
         do {
             current = current.equals(firstPlayer) ? secondPlayer : firstPlayer;
-            System.out.println("\nPlayer " + current.getName() + ", please choise your number: ");
+            System.out.print("\nPlayer " + current.getName() + ", please choise your number: ");
             currentNumber  = sc.nextInt();
 
             if(currentNumber == randomNum) {
