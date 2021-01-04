@@ -7,8 +7,8 @@ public class GuessNumber {
 
     public static final int attemptsNumber = 10;
 
-    private final Player firstPlayer;
-    private final Player secondPlayer;
+    private Player firstPlayer;
+    private Player secondPlayer;
 
     GuessNumber(Player firstPlayer, Player secondPlayer) {
         this.firstPlayer = firstPlayer;

@@ -1,6 +1,5 @@
 package com.startjava.lesson_4.game;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Player {
