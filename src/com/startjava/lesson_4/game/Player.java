@@ -5,11 +5,11 @@ import java.util.Arrays;
 public class Player {
     private String name;
     private int[] numbers;
-    private int attempts = 0;
+    private int attempts;
 
     public Player(String name) {
         this.name = name;
-        numbers = new int[GuessNumber.attemptsNumber];
+        numbers = new int[GuessNumber.ATTEMPTS_NUMBER];
     }
 
     public String getName() {
@@ -28,15 +28,12 @@ public class Player {
         return attempts;
     }
 
-    public void reset() {
-        Arrays.fill(numbers, 0);
-        attempts = 0;
+    public int[] getNumbers() {
+        return numbers;
     }
 
-    public void printNumbers() {
-        System.out.print(name + "[");
-        for (int j : Arrays.copyOf(numbers, attempts))
-            System.out.print(" " + j);
-        System.out.println("]");
+    public void reset() {
+        Arrays.fill(numbers, 0, attempts, 0);
+        attempts = 0;
     }
 }

@@ -1,11 +1,12 @@
 package com.startjava.lesson_4.game;
 
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
 public class GuessNumber {
 
-    public static final int attemptsNumber = 10;
+    public static final int ATTEMPTS_NUMBER = 10;
 
     private Player firstPlayer;
     private Player secondPlayer;
@@ -16,9 +17,10 @@ public class GuessNumber {
     }
 
     void start() {
-
         firstPlayer.reset();
         secondPlayer.reset();
+
+        printNumbers(firstPlayer);
 
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
@@ -30,7 +32,7 @@ public class GuessNumber {
         do {
             current = current.equals(firstPlayer) ? secondPlayer : firstPlayer;
 
-            if (current.getAttempts() == attemptsNumber) {
+            if (current.getAttempts() == ATTEMPTS_NUMBER) {
                 System.out.println("\nУ " + current.getName() + " закончились попытки");
                 break;
             }
@@ -45,10 +47,16 @@ public class GuessNumber {
 
             String message = current.getNumber() > randomNum ? "больше" : "меньше";
             System.out.println("ваше число " + message);
-
         } while(true);
 
-        firstPlayer.printNumbers();
-        secondPlayer.printNumbers();
+        printNumbers(firstPlayer);
+        printNumbers(secondPlayer);
+    }
+
+    private void printNumbers(Player player) {
+        System.out.print(player.getName() + "[");
+        for (int j : Arrays.copyOf(player.getNumbers(), player.getAttempts()))
+            System.out.print(" " + j);
+        System.out.println("]");
     }
 }
