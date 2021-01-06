@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    public static final int ATTEMPTS_NUMBER = 10;
+    static final int NUMBER_ATTEMPTS = 10;
 
     private Player firstPlayer;
     private Player secondPlayer;
@@ -17,46 +17,44 @@ public class GuessNumber {
     }
 
     void start() {
-        firstPlayer.reset();
-        secondPlayer.reset();
-
-        printNumbers(firstPlayer);
-
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
         int randomNum = random.nextInt(100) + 1;
-        Player current = secondPlayer;
+        Player currentPlayer = secondPlayer;
 
         System.out.println("У вас 10 попыток");
 
         do {
-            current = current.equals(firstPlayer) ? secondPlayer : firstPlayer;
+            currentPlayer = currentPlayer.equals(firstPlayer) ? secondPlayer : firstPlayer;
 
-            if (current.getAttempts() == ATTEMPTS_NUMBER) {
-                System.out.println("\nУ " + current.getName() + " закончились попытки");
+            if (currentPlayer.getAttempts() == NUMBER_ATTEMPTS) {
+                System.out.println("\nУ " + currentPlayer.getName() + " закончились попытки");
                 break;
             }
 
-            System.out.print("\nИгрок " + current.getName() + ", назовите свой вариант: ");
-            current.setNumber(sc.nextInt());
+            System.out.print("\nИгрок " + currentPlayer.getName() + ", назовите свой вариант: ");
+            currentPlayer.setNumber(sc.nextInt());
 
-            if(current.getNumber() == randomNum) {
-                System.out.println("Игрок " + current.getName() + " угадал число " + randomNum + " с " + current.getAttempts() + " попытки");
+            if(currentPlayer.getNumber() == randomNum) {
+                System.out.println("Игрок " + currentPlayer.getName() + " угадал число " + randomNum + " с " + currentPlayer.getAttempts() + " попытки");
                 break;
             }
 
-            String message = current.getNumber() > randomNum ? "больше" : "меньше";
+            String message = currentPlayer.getNumber() > randomNum ? "больше" : "меньше";
             System.out.println("ваше число " + message);
         } while(true);
 
         printNumbers(firstPlayer);
         printNumbers(secondPlayer);
+
+        firstPlayer.reset();
+        secondPlayer.reset();
     }
 
     private void printNumbers(Player player) {
         System.out.print(player.getName() + "[");
-        for (int j : Arrays.copyOf(player.getNumbers(), player.getAttempts()))
-            System.out.print(" " + j);
+        for (int number : player.getNumbers())
+            System.out.print(" " + number);
         System.out.println("]");
     }
 }

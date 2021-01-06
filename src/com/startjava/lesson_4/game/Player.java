@@ -9,7 +9,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-        numbers = new int[GuessNumber.ATTEMPTS_NUMBER];
+        numbers = new int[GuessNumber.NUMBER_ATTEMPTS];
     }
 
     public String getName() {
@@ -29,7 +29,7 @@ public class Player {
     }
 
     public int[] getNumbers() {
-        return numbers;
+        return Arrays.copyOf(numbers, attempts);
     }
 
     public void reset() {
