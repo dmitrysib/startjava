@@ -4,11 +4,13 @@ public class Calculator {
 
     public int calculate(String mathExpression) {
         String[] parts = mathExpression.split(" ");
-        if (parts.length != 3)
-            return wrongMathExpression();
+        if (parts.length != 3) {
+            return showError();
+        }
 
-        if (NonInteger(parts[0]) || NonInteger(parts[2]))
-            return wrongMathExpression();
+        if (!isInteger(parts[0]) || !isInteger(parts[2])) {
+            return showError();
+        }
 
         int a = Integer.parseInt(parts[0]);
         int b = Integer.parseInt(parts[2]);
@@ -20,22 +22,22 @@ public class Calculator {
             case '/' -> a / b;
             case '^' -> (int) Math.pow(a, b);
             case '%' -> a % b;
-            default -> wrongMathExpression();
+            default -> showError();
         };
     }
 
-    private int wrongMathExpression() {
+    private int showError() {
         System.out.println("Математическое выражение должно выглядеть как \"Число<пробел>знак_математической_операции<пробел>Число\"");
         System.out.println("Допустимый знак математической операции: \"+ - * / ^ %\"");
         return 0;
     }
 
-    private boolean NonInteger(String str) {
+    private boolean isInteger(String str) {
         try {
             Integer.parseInt(str.trim());
-        } catch (NumberFormatException nfe) {
-            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return false;
+        return true;
     }
 }
