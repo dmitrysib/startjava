@@ -4,7 +4,7 @@ class Calculator {
 
     int calculate(String mathExpression)
             throws Exception {
-        String[] parts = mathExpression.split(" ");
+        String[] parts = mathExpression.split(" ", 3);
 
         int a = Integer.parseInt(parts[0]);
         int b = Integer.parseInt(parts[2]);
