@@ -16,7 +16,9 @@ class CalculatorTest {
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 System.out.println("Математическое выражение должно выглядеть как \"Целое число<пробел>знак_математической_операции<пробел>Целое число\"");
             } catch (ArithmeticException e) {
-                 System.out.println("Допустимый знак математической операции: \"+ - * / ^ %\"");
+                System.out.println("Деление на 0 недопустимо");
+            } catch (Exception e) {
+                System.out.println("Допустимый знак математической операции: \"+ - * / ^ %\"");
             }
 
             answer = "";

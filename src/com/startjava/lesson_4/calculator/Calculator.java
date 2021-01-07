@@ -2,7 +2,8 @@ package com.startjava.lesson_4.calculator;
 
 class Calculator {
 
-    int calculate(String mathExpression) {
+    int calculate(String mathExpression)
+            throws Exception {
         String[] parts = mathExpression.split(" ");
 
         int a = Integer.parseInt(parts[0]);
@@ -15,7 +16,7 @@ class Calculator {
             case '/' -> a / b;
             case '^' -> (int) Math.pow(a, b);
             case '%' -> a % b;
-            default -> throw new ArithmeticException();
+            default -> throw new Exception();
         };
     }
 }
