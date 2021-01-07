@@ -2,7 +2,7 @@ package com.startjava.lesson_4.calculator;
 
 import java.util.Scanner;
 
-public class CalculatorTest {
+class CalculatorTest {
 
     public static void main(String[] args) {
         Calculator calc = new Calculator();
@@ -11,7 +11,14 @@ public class CalculatorTest {
         String answer;
         do {
             System.out.print("Введите математическое выражение: ");
-            System.out.println("Результат: " + calc.calculate(sc.nextLine()));
+            try {
+                System.out.println("Результат: " + calc.calculate(sc.nextLine()));
+            } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
+                System.out.println("Математическое выражение должно выглядеть как \"Целое число<пробел>знак_математической_операции<пробел>Целое число\"");
+            }
+             catch (ArithmeticException e) {
+                 System.out.println("Допустимый знак математической операции: \"+ - * / ^ %\"");
+             }
 
             answer = "";
             while(!answer.equals("да") && !answer.equals("нет")) {
