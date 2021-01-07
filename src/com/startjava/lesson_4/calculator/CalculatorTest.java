@@ -15,10 +15,9 @@ class CalculatorTest {
                 System.out.println("Результат: " + calc.calculate(sc.nextLine()));
             } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
                 System.out.println("Математическое выражение должно выглядеть как \"Целое число<пробел>знак_математической_операции<пробел>Целое число\"");
-            }
-             catch (ArithmeticException e) {
+            } catch (ArithmeticException e) {
                  System.out.println("Допустимый знак математической операции: \"+ - * / ^ %\"");
-             }
+            }
 
             answer = "";
             while(!answer.equals("да") && !answer.equals("нет")) {
