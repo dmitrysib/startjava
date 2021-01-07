@@ -27,11 +27,6 @@ public class GuessNumber {
         do {
             currentPlayer = currentPlayer.equals(firstPlayer) ? secondPlayer : firstPlayer;
 
-            if (currentPlayer.getAttempts() == NUMBER_ATTEMPTS) {
-                System.out.println("\nУ " + currentPlayer.getName() + " закончились попытки");
-                break;
-            }
-
             System.out.print("\nИгрок " + currentPlayer.getName() + ", назовите свой вариант: ");
             currentPlayer.setNumber(sc.nextInt());
 
@@ -42,6 +37,11 @@ public class GuessNumber {
 
             String message = currentPlayer.getNumber() > randomNum ? "больше" : "меньше";
             System.out.println("ваше число " + message);
+
+            if (currentPlayer.getAttempts() == NUMBER_ATTEMPTS) {
+                System.out.println("\nУ " + currentPlayer.getName() + " закончились попытки");
+                break;
+            }
         } while(true);
 
         printNumbers(firstPlayer);
